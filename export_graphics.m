@@ -1,4 +1,8 @@
 function export_graphics(figure_handle, folder_name, figure_name, resolution)
+% Add path
+addpath(genpath('fig2svg-master\'));
+addpath(genpath('export_fig-master\'));
+
 % create a folder to save the graphics
 remkdir(folder_name);
 

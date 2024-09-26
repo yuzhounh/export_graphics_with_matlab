@@ -1,9 +1,5 @@
 clear, clc, close all;
 
-% Add path
-addpath(genpath('fig2svg-master\'));
-addpath(genpath('export_fig-master\'));
-
 % Create figure
 figure_handle = figure;
 plot(1:10, rand(1, 10));
