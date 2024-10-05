@@ -61,12 +61,12 @@ To use this comparison tool:
 1. Run `main.m` to view the output image effects with English text only.
 
 2. To test with Chinese fonts:
-   - Run `main_SimSun.m` to test with Chinese text using SimSun (宋体) font
-   - Run `main_MSYH.m` to test with Chinese text using Microsoft YaHei (微软雅黑) font
+   - Run `main_SimSun.m` to test Chinese text using SimSun font
+   - Run `main_MSYH.m` to test Chinese text using Microsoft YaHei font
 
 3. Compare the resulting images in the `figures` folder to observe differences in font rendering and export quality across various formats and languages.
 
-Note: The output images for all tests will be saved in the `figures` folder.
+4. Once you find an image that meets your requirements, use the corresponding command from `export_graphics.m` to export your figures.
 
 ## Supported Formats and Characteristics
 
