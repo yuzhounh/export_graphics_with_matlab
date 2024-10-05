@@ -14,7 +14,7 @@ scale=0.7;
 set(gcf,'Position',[pos(1),pos(2),pos(3)*scale,pos(4)*scale]);
 
 % Export graphics
-folder_name = 'figures';
+folder_name = 'saved_figures';
 figure_name = 'figure_1';  
 resolution = 300; 
 export_graphics(figure_handle, folder_name, figure_name, resolution);

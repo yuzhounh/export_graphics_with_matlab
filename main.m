@@ -14,7 +14,7 @@ scale = 0.7;
 set(gcf, 'Position', [pos(1), pos(2), pos(3)*scale, pos(4)*scale]);
 
 % Specify the folder name where the figure will be saved
-folder_name = 'figures';
+folder_name = 'saved_figures';
 
 % Specify the filename for the saved figure (without extension)
 figure_name = 'figure_1';  

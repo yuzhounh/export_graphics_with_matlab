@@ -1,136 +1,79 @@
-# MATLAB Figure Export Comparison
+# MATLAB 图形导出比较
 
-This project compares different methods of exporting figures in MATLAB, focusing on various file formats and their characteristics.
+## 特性
+- 全面比较 6 种常用的 MATLAB 图形导出方法：exportgraphics、print、saveas、export_fig、fig2svg、savefig
+- 支持多种文件格式，包括 bmp、emf、eps、fig、gif、jpg、pdf、png、svg、tif
+- 评估字体渲染，特别关注中文字符的处理（包括宋体和微软雅黑）
+- 提供易用的脚本，用于测试各种导出场景
+- 详细比较不同方法的优缺点和适用情况
 
-- [中文README](README_zh-CN.md)
-- [English README](README.md)
-  
-## Table of Contents
-- [MATLAB Figure Export Comparison](#matlab-figure-export-comparison)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-  - [Features](#features)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Supported Formats and Characteristics](#supported-formats-and-characteristics)
-    - [exportgraphics](#exportgraphics)
-    - [print](#print)
-    - [saveas](#saveas)
-    - [export\_fig](#export_fig)
-    - [fig2svg](#fig2svg)
-    - [savefig](#savefig)
-  - [Font Handling](#font-handling)
-  - [Notes](#notes)
-  - [Contributing](#contributing)
-  - [Acknowledgements](#acknowledgements)
-  - [License](#license)
-  - [Contact](#contact)
+## 使用方法
 
-## Overview
+1. 运行 `main.m` 以生成并导出使用默认字体的英文文本的图像。
 
-This project evaluates the following MATLAB figure export methods:
+2. 运行 `main_SimSun.m` 以生成并导出使用默认字体宋体的中文文本图像。
 
-1. exportgraphics
-2. print
-3. saveas
-4. export_fig
-5. fig2svg
-6. savefig
+3. 运行 `main_MSYH.m` 以生成并导出使用微软雅黑字体的中文文本图像。
 
-Each method is tested with different file formats and settings to compare their capabilities and limitations.
+4. 在 `saved_figures` 文件夹中比较生成的图像，观察不同格式、语言和字体（英文默认字体、中文默认字体宋体、中文微软雅黑字体）之间的渲染质量差异。
 
-## Features
-- Comprehensive comparison of 6 MATLAB figure export methods
-- Support for multiple file formats including emf, eps, pdf, png, svg, and more
-- Evaluation of font handling, especially for Chinese characters
-- Easy-to-use script for testing different export scenarios
+5. 根据比较结果，选择最符合您需求的导出方法和格式。使用 `export_graphics.m` 中相应的命令来导出您的最终图像。
 
-## Installation
+注意：每个脚本都会使用不同的导出方法和格式生成多个图像文件，便于全面比较。
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yuzhounh/matlab-figure-export-comparison.git
-   ```
-2. Ensure you have MATLAB installed on your system.
-3. (Optional) Install or update the [export_fig](https://github.com/altmany/export_fig) and [fig2svg](https://github.com/kupiqu/fig2svg) toolboxes if needed.
-
-## Usage
-
-To use this comparison tool:
-
-1. Run `main.m` to view the output image effects with English text only.
-
-2. To test with Chinese fonts:
-   - Run `main_SimSun.m` to test Chinese text using SimSun font
-   - Run `main_MSYH.m` to test Chinese text using Microsoft YaHei font
-
-3. Compare the resulting images in the `figures` folder to observe differences in font rendering and export quality across various formats and languages.
-
-4. Once you find an image that meets your requirements, use the corresponding command from `export_graphics.m` to export your figures.
-
-## Supported Formats and Characteristics
+## 支持的格式和特性
 
 ### exportgraphics
-- Supports: emf, eps, gif, jpg, pdf, png, tif
-- PDF output is normal
-- EPS converted to PDF displays Chinese characters in SimSun font
+- 支持：emf、eps、gif、jpg、pdf、png、tif
+- 使用宋体时：pdf 中文字符显示为 '#'
+- 使用微软雅黑字体时：eps 中文字符显示为宋体
 
 ### print
-- Supports: emf, eps, jpg, pdf, png, svg, tif
-- PDF output is A4 page size
-- EPS converted to PDF maintains original image size
-
+- 支持：emf、eps、jpg、pdf、png、svg、tif
+- 使用微软雅黑字体时：pdf 和 eps 中文字符显示为宋体
+- pdf 输出为 A4 页面大小
+  
 ### saveas
-- Supports: bmp, emf, eps, fig, jpg, pdf, png, svg, tif
-- PDF output is A4 page size
-- EPS converted to PDF maintains original image size
-- Resolution cannot be adjusted (bmp and jpg: 96dpi, png and tif: 150dpi)
-
+- 支持：bmp、emf、eps、fig、jpg、pdf、png、svg、tif
+- 使用微软雅黑字体时：pdf 和 eps 中文字符显示为宋体
+- pdf 输出为 A4 页面大小
+- 无法调整分辨率：（1）bmp，jpg：96dpi;（2）png，tif：150dpi
+  
 ### export_fig
-- Supports: bmp, emf, fig, gif, jpg, png, svg, tif
-- SVG output has a gray background
+- 支持：bmp、emf、fig、gif、jpg、png、svg、tif
+- svg 为灰色背景
 
 ### fig2svg
-- Supports only svg format
-- Default output has enlarged image dimensions
-- SVG text uses Microsoft YaHei font for Chinese characters
+- 支持：svg
+- svg 为灰色背景
 
 ### savefig
-- Supports only fig format
+- 支持：fig
 
-## Font Handling
+## 注意事项
 
-- When using Microsoft YaHei font for Chinese characters:
-  - exportgraphics: EPS converted to PDF displays Chinese in SimSun
-  - print and saveas: PDF and EPS (converted to PDF) display Chinese in SimSun
+1. 除上述特定情况外，其他情形下的导出结果通常能正常显示。
+2. 仅包含英文文本，并且使用默认字体，通常图形导出问题较少。
+3. 大多数导出格式都保留了不同程度的图像透明度，但在白色背景下可能不易察觉。
+4. EPS 文件的显示效果评估基于使用 Adobe Acrobat 将 EPS 转换为 PDF 后的结果。
+5. 使用 export_fig 导出含微软雅黑字体的图片时会出现以下提示，点击"Cancel"即可：
 
-- When using SimSun font for Chinese characters:
-  - exportgraphics: PDF displays Chinese as '#', EPS converted to PDF displays correctly
-  - print and saveas: PDF and EPS (converted to PDF) display Chinese correctly
+   <p align="center">
+     <img src="./GhostscriptWarning.png" alt="Ghostscript Warning">
+   </p>
 
-- When only English text is present, font issues are not observed
+## 致谢
 
-## Notes
-
-1. Figures without Chinese text generally have fewer export issues.
-2. Image transparency is preserved in most formats but may not be visible with white backgrounds.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Acknowledgements
-
-Thanks to the following repositories:
+感谢以下仓库：
 - [export_fig](https://github.com/altmany/export_fig)
 - [fig2svg](https://github.com/kupiqu/fig2svg)
 
-## License
+## 许可证
 
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+本项目采用 GNU 通用公共许可证 v3.0 (GPL-3.0) 授权。
 
-## Contact
+## 联系方式
 
-Jing Wang - wangjing@xynu.edu.cn
+王敬 - wangjing@xynu.edu.cn
 
-Project Link: [https://github.com/yuzhounh/matlab-figure-export-comparison](https://github.com/yuzhounh/matlab-figure-export-comparison)
+项目链接：[https://github.com/yuzhounh/matlab-figure-export-comparison](https://github.com/yuzhounh/matlab-figure-export-comparison)
