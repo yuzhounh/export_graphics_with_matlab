@@ -58,7 +58,7 @@
 4. EPS 文件的显示效果评估基于使用 Adobe Acrobat 将 EPS 转换为 PDF 后的结果。
 5. 使用 export_fig 导出含微软雅黑字体的图片时会出现以下提示，点击"Cancel"即可：
 
-   <p align="center">
+   <p>
      <img src="./GhostscriptWarning.png" alt="Ghostscript Warning">
    </p>
 
