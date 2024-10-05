@@ -2,6 +2,9 @@
 
 This project compares different methods of exporting figures in MATLAB, focusing on various file formats and their characteristics.
 
+- [中文README](README_zh-CN.md)
+- [English README](README.md)
+  
 ## Table of Contents
 - [MATLAB Figure Export Comparison](#matlab-figure-export-comparison)
   - [Table of Contents](#table-of-contents)

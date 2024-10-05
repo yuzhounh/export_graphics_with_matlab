@@ -2,6 +2,9 @@
 
 本项目比较了 MATLAB 中不同的图形导出方法，重点关注各种文件格式及其特性。
 
+- [中文README](README_zh-CN.md)
+- [English README](README.md)
+  
 ## 目录
 - [MATLAB 图形导出比较](#matlab-图形导出比较)
   - [目录](#目录)
